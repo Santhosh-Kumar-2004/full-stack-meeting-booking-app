@@ -30,3 +30,13 @@ It allows professionals to set availability, let guests book meetings, and recei
  AI scheduling assistant
  Google Calendar sync
  Analytics dashboard
+
+## # 🔹 5. Connect GitHub Repo with VS Code
+1. Create repo on GitHub (empty).  
+2. In VS Code terminal, inside your project folder:  
+   ```bash
+   git init
+   git remote add origin https://github.com/YOUR-USERNAME/meeting-booking-app.git
+   git add .
+   git commit -m "Initial commit"
+   git push -u origin main
