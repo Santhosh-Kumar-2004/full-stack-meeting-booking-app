@@ -23,4 +23,4 @@ It allows professionals to set availability, let guests book meetings, and recei
 ## ⚙️ Installation
 1. Clone the repo:
    ```bash
-   git clone https://github.com/YOUR-USERNAME/meeting-booking-app.git
+   git clone https://github.com/Santhosh-Kumar-2004/meeting-booking-app.git
