@@ -25,7 +25,7 @@ It allows professionals to set availability, let guests book meetings, and recei
    ```bash
    git clone https://github.com/Santhosh-Kumar-2004/meeting-booking-app.git
    ```
-## 📌 Roadmap
+## 📌 Roadmap (Future add ons)
  Add payment integration
  AI scheduling assistant
  Google Calendar sync
