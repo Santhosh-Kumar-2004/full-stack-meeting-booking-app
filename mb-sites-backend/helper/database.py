@@ -15,3 +15,6 @@ DB_NAME = os.getenv("DB_NAME", "meeting_db")
 
 # SQLAlchemy connection URL for MySQL
 DATABASE_URL = f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+
+# Create engine for database
+engine = create_engine(DATABASE_URL, echo=True)
