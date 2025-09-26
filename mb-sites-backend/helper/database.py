@@ -35,7 +35,7 @@ SessionLocal = sessionmaker( #SessionLocal → gives us a session to query/commi
 Base = declarative_base() # Base → used to define ORM models later (Users, Bookings).
 
 # Dependency for DB sessions (to be used in FastAPI routes)
-def get_db():
+def get_db(): #get_db() → dependency injection for FastAPI routes.
     db = SessionLocal()
     try:
         yield db
