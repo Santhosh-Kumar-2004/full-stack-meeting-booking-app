@@ -24,3 +24,10 @@ INSERT INTO users (id, name, email, password)
 VALUES (UUID(), 'John Doe', 'john@example.com', 'hashed_password_123');
 
 SELECT * FROM users;
+
+INSERT INTO bookings (id, guest_name, guest_email, reason, meeting_time)
+VALUES 
+(UUID(), 'Alice Smith', 'alice@example.com', 'Discuss project proposal', '2025-10-01 15:00:00'),
+(UUID(), 'Bob Brown', 'bob@example.com', 'Catch-up call', '2025-10-02 11:30:00');
+
+SELECT * FROM bookings;
