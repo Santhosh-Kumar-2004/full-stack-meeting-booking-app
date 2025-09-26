@@ -10,6 +10,9 @@ CREATE TABLE users (
   PRIMARY KEY (id)
 );
 
+ALTER TABLE users
+ADD COLUMN role VARCHAR(10) NOT NULL DEFAULT 'user';
+
 CREATE TABLE bookings (
   id CHAR(36) NOT NULL,
   guest_name VARCHAR(255) NOT NULL,
