@@ -9,3 +9,13 @@ CREATE TABLE users (
   password VARCHAR(255) NOT NULL,
   PRIMARY KEY (id)
 );
+
+CREATE TABLE bookings (
+  id CHAR(36) NOT NULL,
+  guest_name VARCHAR(255) NOT NULL,
+  guest_email VARCHAR(255) NOT NULL,
+  reason TEXT,
+  meeting_time DATETIME NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+);
