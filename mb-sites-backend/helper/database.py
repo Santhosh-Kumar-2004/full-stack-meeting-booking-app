@@ -32,7 +32,7 @@ SessionLocal = sessionmaker( #SessionLocal → gives us a session to query/commi
 )
 
 # Base class for models
-Base = declarative_base()
+Base = declarative_base() # Base → used to define ORM models later (Users, Bookings).
 
 # Dependency for DB sessions (to be used in FastAPI routes)
 def get_db():
