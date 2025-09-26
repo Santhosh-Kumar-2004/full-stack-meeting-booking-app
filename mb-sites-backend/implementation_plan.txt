@@ -1,0 +1,15 @@
+Database models (models.py)
+    SQLAlchemy ORM classes for User & Booking.
+
+Schemas (schemas.py)
+    Pydantic models for request/response validation.
+
+Routers (auth.py, bookings.py)
+    Implement endpoints with JWT + role checks.
+    Main App (main.py)
+    Include routers, DB connection, middlewares (CORS).
+    
+Security
+    Password hashing (bcrypt).
+    JWT generation/verification.
+    Role validation decorators.
