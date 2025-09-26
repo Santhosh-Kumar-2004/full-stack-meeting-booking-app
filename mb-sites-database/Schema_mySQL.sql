@@ -11,7 +11,7 @@ CREATE TABLE users (
 );
 
 ALTER TABLE users
-ADD role VARCHAR(10) NOT NULL DEFAULT 'user';
+ADD role VARCHAR(10) NOT NULL DEFAULT 'user'; 
 
 CREATE TABLE bookings (
   id CHAR(36) NOT NULL,
