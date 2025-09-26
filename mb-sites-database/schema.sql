@@ -19,3 +19,8 @@ CREATE TABLE bookings (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id)
 );
+
+INSERT INTO users (id, name, email, password)
+VALUES (UUID(), 'John Doe', 'john@example.com', 'hashed_password_123');
+
+SELECT * FROM users;
