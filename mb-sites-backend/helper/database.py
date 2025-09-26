@@ -25,7 +25,7 @@ engine = create_engine(  #engine → manages connection to MySQL.
 )
 
 # Create session
-SessionLocal = sessionmaker(
+SessionLocal = sessionmaker( #SessionLocal → gives us a session to query/commit.
     autocommit=False, 
     autoflush=False,
     bind=engine
