@@ -23,7 +23,9 @@ ADMIN_EMAILS = os.getenv("ADMIN_EMAILS", "").split(",")
 # ---------------- PASSWORD UTILS ----------------
 
 def hash_password(password: str) -> str:
-    """Hash a plain password using bcrypt"""
+    """
+    Hash a plain password using bcrypt
+    """
     return pwd_context.hash(password)
 
 
