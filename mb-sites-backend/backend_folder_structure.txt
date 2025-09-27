@@ -1,12 +1,13 @@
 backend/
-│── main.py              # FastAPI app entry
-│── database.py          # DB connection setup
-│── models.py            # SQLAlchemy models (users, bookings)
-│── schemas.py           # Pydantic schemas (request/response validation)
-│── routers/
-│    ├── auth.py         # Authentication endpoints
-│    └── bookings.py     # Booking endpoints
-│── .env                 # DB connection URL & secrets
+│── main.py
+│── .env
+│── requirements.txt
+│── .gitignore
+│── helper/
+│     └── database.py
+│── models/
+│     └── models.py   <-- next file we’ll create now
+
 
 
 Env is an environment variable file which is used for storing sensitive information
