@@ -56,6 +56,7 @@ def decode_access_token(token: str) -> Optional[dict]:
     """
     Decode JWT token and return payload if valid
     """
+    
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         return payload
