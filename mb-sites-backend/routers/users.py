@@ -94,7 +94,9 @@ def login_user(
 
 # Get all users
 @router.get("/", response_model=list[UserResponse])
-def get_users(db: Session = Depends(get_db)):
+def get_users(
+    db: Session = Depends(get_db)
+):
     try:
         users = db.query(User).all()
         return users
