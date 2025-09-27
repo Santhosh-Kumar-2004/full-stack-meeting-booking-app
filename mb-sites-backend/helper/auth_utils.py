@@ -10,3 +10,5 @@ load_dotenv()
 
 # password hashing context
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+#JWT settings added
