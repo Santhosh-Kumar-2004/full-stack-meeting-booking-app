@@ -18,3 +18,15 @@ ACCESS_TOKEN_EXPIRE_MINUTES = os.getenv("JWT_EXPIRE_MINUTES")
 
 # Admins email, RBAC (from .env)
 ADMIN_EMAILS = os.getenv("ADMIN_EMAILS", "").split(",")
+
+
+# ---------------- PASSWORD UTILS ----------------
+
+def hash_password(password: str) -> str:
+    """Hash a plain password using bcrypt"""
+    return pwd_context.hash(password)
+
+
+def verify_password(plain_password: str, hashed_password: str) -> bool:
+    """Verify a plain password against the hashed password"""
+    return pwd_context.verify(plain_password, hashed_password)
