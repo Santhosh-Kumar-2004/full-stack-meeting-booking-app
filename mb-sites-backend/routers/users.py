@@ -7,7 +7,7 @@ from helper.auth_utils import create_access_token, verify_password, hash_passwor
 from schemas.user import UserCreate, UserLogin, UserResponse
 from models.models import User
 
-router = APIRouter(prefix="/users", tags=["Users"])
+router = APIRouter(prefix="/auth", tags=["Users"])
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
