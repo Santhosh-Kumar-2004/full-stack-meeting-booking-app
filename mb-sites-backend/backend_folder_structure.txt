@@ -9,4 +9,4 @@ backend/
 │── .env                 # DB connection URL & secrets
 
 
-Env is an environment variable file
+Env is an environment variable file which is used for 
