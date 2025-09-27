@@ -106,10 +106,11 @@ def get_users(
     Raises:
         HTTPException 500: Unexpected server or database error.
     """
-    
+
     try:
         users = db.query(User).all()
         return users
+    
     except Exception as e:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
