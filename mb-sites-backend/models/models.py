@@ -1,5 +1,3 @@
-# backend/models/models.py
-
 from sqlalchemy import Column, String, Enum, DateTime, ForeignKey
 from sqlalchemy.dialects.mysql import CHAR
 from sqlalchemy.orm import relationship
