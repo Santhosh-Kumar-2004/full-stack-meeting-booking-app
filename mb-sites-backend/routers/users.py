@@ -19,32 +19,23 @@ def register_user(
     db: Session = Depends(get_db)
 ):
     """
-    Registers a new user in the database.
+    Registers a new user.
 
-    It first checks if a user with the provided email already exists. If the email
-    is unique, the user's password is securely hashed before the new user record
-    is created, committed to the database, and then returned.
-
-    Args:
-        user (UserCreate): The Pydantic model containing the user's registration
-                        details (email, password, full_name).
-        db (Session, optional): Database session dependency. Defaults to Depends(get_db).
-
-    Returns:
-        UserResponse: The newly created user object, excluding the plaintext password.
+    Checks if the email is already in use. If not, it hashes the password,
+    creates a new user record in the database, and returns the newly created user object.
 
     Raises:
-        HTTPException 400: If the provided email address is already registered.
-        HTTPException 500: For any unexpected database or server error during creation.
+        HTTPException 400: If the email is already registered.
+        HTTPException 500: For unexpected server or database errors.
     """
-    
+
     try:
         db_user = db.query(User).filter(User.email == user.email).first()
 
         if db_user:
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
-                detail="Email already registered"
+                detail="Email address is Invalid"
             )
         
         # hash password
@@ -52,7 +43,7 @@ def register_user(
         new_user = User(
             email=user.email,
             password=hashed_password,
-            full_name=user.full_name
+            full_name=user.name
         )
 
         db.add(new_user)
