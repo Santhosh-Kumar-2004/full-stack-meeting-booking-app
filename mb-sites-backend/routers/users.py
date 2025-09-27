@@ -64,6 +64,15 @@ def login_user(
     user: UserLogin, 
     db: Session = Depends(get_db)
 ):
+    """
+    Authenticates user credentials (email and password).
+
+    If successful, it generates and returns a JWT access token.
+
+    Raises:
+        HTTPException 401: Invalid email or password.
+        HTTPException 500: Unexpected login error.
+    """
     try:
         db_user = db.query(User).filter(User.email == user.email).first()
         if not db_user or not verify_password(user.password, db_user.password):
