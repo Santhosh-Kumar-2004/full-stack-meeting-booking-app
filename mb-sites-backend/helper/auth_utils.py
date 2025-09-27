@@ -5,6 +5,7 @@ from typing import Optional, List
 from fastapi import Depends, HTTPException, status, Header
 from sqlalchemy.orm import Session
 from helper.database import get_db
+from models.models import User
 
 import os
 from dotenv import load_dotenv
