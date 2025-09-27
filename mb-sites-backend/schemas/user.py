@@ -1,0 +1,25 @@
+# backend/schemas/user.py
+
+from pydantic import BaseModel, EmailStr, constr
+from typing import Optional
+
+# For user registration (input)
+class UserCreate(BaseModel):
+    name: str
+    email: EmailStr
+    password: str
+
+# For login (input)
+class UserLogin(BaseModel):
+    email: EmailStr
+    password: str
+
+# For response (output)
+class UserResponse(BaseModel):
+    id: str
+    name: str
+    email: EmailStr
+    role: str
+
+    class Config:
+        from_attributes = True  # allows ORM to Pydantic conversion
