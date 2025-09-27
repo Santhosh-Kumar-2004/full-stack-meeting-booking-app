@@ -1,5 +1,3 @@
-# backend/schemas/user.py
-
 from pydantic import BaseModel, EmailStr, constr
 from typing import Optional
 
