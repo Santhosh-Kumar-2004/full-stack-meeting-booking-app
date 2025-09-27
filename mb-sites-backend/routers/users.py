@@ -73,6 +73,7 @@ def login_user(
         HTTPException 401: Invalid email or password.
         HTTPException 500: Unexpected login error.
     """
+
     try:
         db_user = db.query(User).filter(User.email == user.email).first()
         if not db_user or not verify_password(user.password, db_user.password):
@@ -83,6 +84,7 @@ def login_user(
 
         access_token = create_access_token(data={"sub": db_user.email})
         return {"access_token": access_token, "token_type": "bearer"}
+    
     except Exception as e:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
