@@ -14,3 +14,4 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 #JWT settings added
 SECRET_KEY = os.getenv("JWT_SECRET")
 ALGORITHM = os.getenv("JWT_ALGORITHM")
+ACCESS_TOKEN_EXPIRE_MINUTES = os.getenv("JWT_EXPIRE_MINUTES")
