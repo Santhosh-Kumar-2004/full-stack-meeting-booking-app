@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from passlib.context import CryptContext
 
 from helper.database import get_db
-from helper.auth_utils import create_access_token, verify_password
+from helper.auth_utils import create_access_token, verify_password, hash_password
 from schemas.user import UserCreate, UserLogin, UserResponse
 from models.models import User
 
@@ -23,7 +23,7 @@ def register_user(user: UserCreate, db: Session = Depends(get_db)):
                 detail="Email already registered"
             )
         # hash password
-        hashed_password = pwd_context.hash(user.password)
+        hashed_password = hash_password(user.password)
         new_user = User(
             email=user.email,
             password=hashed_password,
