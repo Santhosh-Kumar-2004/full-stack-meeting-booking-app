@@ -82,7 +82,11 @@ def login_user(
                 detail="Invalid email or password"
             )
 
-        access_token = create_access_token(data={"sub": db_user.email})
+        access_token = create_access_token(data={
+            "sub": db_user.email,
+            "name": db_user.name,
+            "role": db_user.role.value
+        })
         return {"access_token": access_token, "token_type": "bearer"}
     
     except Exception as e:

@@ -2,6 +2,9 @@ from passlib.context import CryptContext
 from jose import JWTError, jwt
 from datetime import datetime, timedelta
 from typing import Optional, List
+from fastapi import Depends, HTTPException, status, Header
+from sqlalchemy.orm import Session
+from helper.database import get_db
 
 import os
 from dotenv import load_dotenv
@@ -75,3 +78,42 @@ def is_admin(email: str) -> bool:
     """
 
     return email in ADMIN_EMAILS
+
+
+# ✅ Dependency to get current logged-in user
+def get_current_user(
+    authorization: str = Header(None),
+    db: Session = Depends(get_db)
+):
+    if not authorization or not authorization.startswith("Bearer "):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Missing or invalid token",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+    token = authorization.split(" ")[1]
+    payload = decode_access_token(token)
+
+    if not payload:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid or expired token",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+
+    email: str = payload.get("sub")
+    if not email:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Token payload invalid (missing sub)",
+        )
+
+    user = db.query(User).filter(User.email == email).first()
+    if not user:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="User not found",
+        )
+
+    return user  # returns full User ORM object
