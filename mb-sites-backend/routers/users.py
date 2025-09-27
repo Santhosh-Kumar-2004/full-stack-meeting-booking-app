@@ -35,7 +35,7 @@ def register_user(
         if db_user:
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
-                detail="Email address is Invalid"
+                detail="Email address is invalid"
             )
         
         # hash password
