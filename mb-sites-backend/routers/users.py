@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from passlib.context import CryptContext
 
 from helper.database import get_db
-from helper.auth_utils import create_access_token, verify_password, hash_password
+from helper.auth_utils import create_access_token, get_current_user, verify_password, hash_password
 from schemas.user import UserCreate, UserLogin, UserResponse
 from models.models import User
 
@@ -99,7 +99,8 @@ def login_user(
 # Get all users
 @router.get("/", response_model=list[UserResponse])
 def get_users(
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
 ):
     """
     Retrieves a list of all users from the database.
@@ -112,6 +113,11 @@ def get_users(
     """
 
     try:
+        if current_user.role != "admin":
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="Operation not permitted"
+            )
         users = db.query(User).all()
         return users
     
