@@ -7,3 +7,6 @@ backend/
 │    ├── auth.py         # Authentication endpoints
 │    └── bookings.py     # Booking endpoints
 │── .env                 # DB connection URL & secrets
+
+
+Env is an 
