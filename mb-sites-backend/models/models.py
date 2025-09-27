@@ -16,7 +16,6 @@ class User(Base):
     role = Column(Enum("user", "admin"), default="user")
 
 
-
 class Booking(Base):
     __tablename__ = "bookings"
 
