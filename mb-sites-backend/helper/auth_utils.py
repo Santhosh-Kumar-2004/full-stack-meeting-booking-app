@@ -64,3 +64,11 @@ def decode_access_token(token: str) -> Optional[dict]:
     
     except JWTError:
         return None
+    
+
+    
+# ---------------- ROLE CHECK ----------------
+
+def is_admin(email: str) -> bool:
+    """Check if a given email is an admin"""
+    return email in ADMIN_EMAILS
