@@ -14,10 +14,13 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 # Register User
 @router.post("/register", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
-def register_user(user: UserCreate, db: Session = Depends(get_db)):
+def register_user(
+    user: UserCreate, 
+    db: Session = Depends(get_db)
+):
     try:
         db_user = db.query(User).filter(User.email == user.email).first()
-        
+
         if db_user:
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
