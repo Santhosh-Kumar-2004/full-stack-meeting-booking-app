@@ -97,6 +97,16 @@ def login_user(
 def get_users(
     db: Session = Depends(get_db)
 ):
+    """
+    Retrieves a list of all users from the database.
+
+    Returns:
+        list[UserResponse]: A list of all user objects.
+
+    Raises:
+        HTTPException 500: Unexpected server or database error.
+    """
+    
     try:
         users = db.query(User).all()
         return users
