@@ -73,5 +73,5 @@ def is_admin(email: str) -> bool:
     """
     Check if a given email is an admin
     """
-    
+
     return email in ADMIN_EMAILS
