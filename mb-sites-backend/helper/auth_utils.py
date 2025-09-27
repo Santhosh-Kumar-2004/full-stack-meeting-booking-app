@@ -9,3 +9,4 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # password hashing context
+pwd_context = CryptContext(schemes=["bcrypt"])
