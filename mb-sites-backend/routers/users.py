@@ -60,7 +60,10 @@ def register_user(
 
 # Login User
 @router.post("/login")
-def login_user(user: UserLogin, db: Session = Depends(get_db)):
+def login_user(
+    user: UserLogin, 
+    db: Session = Depends(get_db)
+):
     try:
         db_user = db.query(User).filter(User.email == user.email).first()
         if not db_user or not verify_password(user.password, db_user.password):
