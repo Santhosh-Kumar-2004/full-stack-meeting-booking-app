@@ -3,7 +3,6 @@ from sqlalchemy.dialects.mysql import CHAR
 from sqlalchemy.orm import relationship
 from datetime import datetime
 import uuid
-
 from helper.database import Base
 
 class User(Base):
