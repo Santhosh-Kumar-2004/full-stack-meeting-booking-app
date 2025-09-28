@@ -23,6 +23,7 @@ def create_booking(
     Raises:
         HTTPException 500: Unexpected server or database error.
     """
+    
     try:
         new_booking = Booking(
             user_id=booking.user_id,
