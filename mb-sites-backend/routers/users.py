@@ -12,7 +12,7 @@ router = APIRouter(prefix="/auth", tags=["Users"])
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
-# Register User
+# Register User - 1
 @router.post("/register", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
 def register_user(
     user: UserCreate, 
@@ -58,7 +58,7 @@ def register_user(
         )
 
 
-# Login User
+# Login User - 2
 @router.post("/login")
 def login_user(
     user: UserLogin, 
@@ -96,7 +96,7 @@ def login_user(
         )
 
 
-# Get all users
+# Get all users - 3
 @router.get("/", response_model=list[UserResponse])
 def get_users(
     db: Session = Depends(get_db),
