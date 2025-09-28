@@ -23,3 +23,8 @@ app.add_middleware(
 # Register routers
 app.include_router(users.router)
 app.include_router(bookings.router)
+
+# Root endpoint (health check)
+@app.get("/")
+def root():
+    return {"message": "Meeting Booking API is running 🚀"}
