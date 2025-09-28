@@ -49,7 +49,7 @@ def get_bookings(
 
 
 # Delete booking
-@router.delete("/{booking_id}", status_code=status.HTTP_204_NO_CONTENT)
+@router.delete("/{booking_id}", status_code=status.HTTP_200_NO_CONTENT)
 def delete_booking(booking_id: str, db: Session = Depends(get_db)):
     try:
         booking = db.query(Booking).filter(Booking.id == booking_id).first()
