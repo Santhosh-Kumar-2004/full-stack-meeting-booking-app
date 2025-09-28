@@ -52,15 +52,14 @@ def get_bookings(
     current_user: User = Depends(get_current_user)
 ):
     """
-    Retrieves a list of all existing bookings.
+    Deletes a specific booking by its ID.
 
-    This endpoint is restricted for **Admin** use only.
-
-    Returns:
-        list[BookingResponse]: A list of all booking objects.
+    This action is restricted to **Admin** users only.
 
     Raises:
-        HTTPException 500: Unexpected server or database error.
+        HTTPException 403: If the current user is not an admin.
+        HTTPException 404: If the booking ID is not found.
+        HTTPException 500: Unexpected server error during deletion.
     """
     
     if not current_user or current_user.role != "admin":
