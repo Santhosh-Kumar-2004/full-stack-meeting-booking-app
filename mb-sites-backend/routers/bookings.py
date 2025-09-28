@@ -23,7 +23,7 @@ def create_booking(
     Raises:
         HTTPException 500: Unexpected server or database error.
     """
-    
+
     try:
         new_booking = Booking(
             user_id=booking.user_id,
@@ -43,7 +43,7 @@ def create_booking(
         )
 
 
-# Get all bookings
+# Get all bookings and this endpoint is used by only admin - 2
 @router.get("/", response_model=list[BookingResponse])
 def get_bookings(
     db: Session = Depends(get_db)
