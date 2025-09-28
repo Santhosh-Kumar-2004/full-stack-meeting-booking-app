@@ -96,13 +96,13 @@ def delete_booking(
     Raises:
         HTTPException 500: Server error during fetch.
     """
-
-    try:
-        if not current_user or current_user.role != "admin":
+    
+    if not current_user or current_user.role != "admin":
             raise HTTPException(
                 status_code=status.HTTP_403_FORBIDDEN,
                 detail="Not authorized to access this resource"
             )
+    try:
         booking = db.query(Booking).filter(Booking.id == booking_id).first()
         if not booking:
             raise HTTPException(
