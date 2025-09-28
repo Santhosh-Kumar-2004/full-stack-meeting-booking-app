@@ -10,7 +10,10 @@ router = APIRouter(prefix="/bookings", tags=["Bookings"])
 
 # Create booking
 @router.post("/", response_model=BookingResponse, status_code=status.HTTP_201_CREATED)
-def create_booking(booking: BookingCreate, db: Session = Depends(get_db)):
+def create_booking(
+    booking: BookingCreate, 
+    db: Session = Depends(get_db)
+):
     try:
         new_booking = Booking(
             user_id=booking.user_id,
@@ -22,6 +25,7 @@ def create_booking(booking: BookingCreate, db: Session = Depends(get_db)):
         db.commit()
         db.refresh(new_booking)
         return new_booking
+    
     except Exception as e:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
