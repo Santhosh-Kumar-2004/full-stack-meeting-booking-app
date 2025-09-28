@@ -86,7 +86,7 @@ def delete_booking(
     Raises:
         HTTPException 500: Server error during fetch.
     """
-    
+
     try:
         booking = db.query(Booking).filter(Booking.id == booking_id).first()
         if not booking:
@@ -97,6 +97,7 @@ def delete_booking(
         db.delete(booking)
         db.commit()
         return {"message": "Booking deleted successfully"}
+    
     except Exception as e:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
