@@ -111,13 +111,13 @@ def get_users(
     Raises:
         HTTPException 500: Unexpected server or database error.
     """
+    if current_user.role != "admin":
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Operation not permitted"
+        )
 
     try:
-        if current_user.role != "admin":
-            raise HTTPException(
-                status_code=status.HTTP_403_FORBIDDEN,
-                detail="Operation not permitted"
-            )
         users = db.query(User).all()
         return users
     
