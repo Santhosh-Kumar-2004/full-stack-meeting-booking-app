@@ -35,7 +35,9 @@ def create_booking(
 
 # Get all bookings
 @router.get("/", response_model=list[BookingResponse])
-def get_bookings(db: Session = Depends(get_db)):
+def get_bookings(
+    db: Session = Depends(get_db)
+):
     try:
         bookings = db.query(Booking).all()
         return bookings
