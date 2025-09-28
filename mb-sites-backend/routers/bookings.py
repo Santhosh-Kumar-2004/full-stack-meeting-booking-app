@@ -59,6 +59,7 @@ def get_bookings(
     Raises:
         HTTPException 500: Unexpected server or database error.
     """
+    
     try:
         bookings = db.query(Booking).all()
         return bookings
