@@ -64,6 +64,12 @@ def get_bookings(
     """
 
     try:
+        if not current_user or current_user.role != "admin":
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="Not authorized to access this resource"
+            )
+        
         bookings = db.query(Booking).all()
         return bookings
     
