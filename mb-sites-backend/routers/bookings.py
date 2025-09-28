@@ -62,6 +62,7 @@ def get_bookings(
     Raises:
         HTTPException 500: Unexpected server or database error.
     """
+    
     if not current_user or current_user.role != "admin":
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
