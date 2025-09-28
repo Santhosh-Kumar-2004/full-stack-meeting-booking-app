@@ -8,7 +8,7 @@ from models.models import Booking
 router = APIRouter(prefix="/bookings", tags=["Bookings"])
 
 
-# Create booking
+# Create booking and this endppint is used by admin also user - 1
 @router.post("/", response_model=BookingResponse, status_code=status.HTTP_201_CREATED)
 def create_booking(
     booking: BookingCreate, 
