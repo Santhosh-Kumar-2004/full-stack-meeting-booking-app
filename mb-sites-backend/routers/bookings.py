@@ -48,6 +48,17 @@ def create_booking(
 def get_bookings(
     db: Session = Depends(get_db)
 ):
+    """
+    Retrieves a list of all existing bookings.
+
+    This endpoint is restricted for **Admin** use only.
+
+    Returns:
+        list[BookingResponse]: A list of all booking objects.
+
+    Raises:
+        HTTPException 500: Unexpected server or database error.
+    """
     try:
         bookings = db.query(Booking).all()
         return bookings
