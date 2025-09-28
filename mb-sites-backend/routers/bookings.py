@@ -88,13 +88,14 @@ def delete_booking(
     current_user: User = Depends(get_current_user)
 ):
     """
-    Retrieves all booking records (Admin only).
+    Deletes a specific booking by its ID.
 
-    Returns:
-        list[BookingResponse]: All booking objects.
+    This action is restricted to **Admin** users only.
 
     Raises:
-        HTTPException 500: Server error during fetch.
+        HTTPException 403: If the current user is not an admin.
+        HTTPException 404: If the booking ID is not found.
+        HTTPException 500: Unexpected server error during deletion.
     """
 
     if not current_user or current_user.role != "admin":
