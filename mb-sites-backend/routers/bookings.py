@@ -77,6 +77,16 @@ def delete_booking(
     booking_id: str, 
     db: Session = Depends(get_db)
 ):
+    """
+    Retrieves all booking records (Admin only).
+
+    Returns:
+        list[BookingResponse]: All booking objects.
+
+    Raises:
+        HTTPException 500: Server error during fetch.
+    """
+    
     try:
         booking = db.query(Booking).filter(Booking.id == booking_id).first()
         if not booking:
