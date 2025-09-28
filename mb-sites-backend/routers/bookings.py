@@ -4,6 +4,8 @@ from sqlalchemy.orm import Session
 from helper.database import get_db
 from schemas.booking import BookingCreate, BookingResponse
 from models.models import Booking
+from helper.auth_utils import get_current_user
+from models.models import User
 
 router = APIRouter(prefix="/bookings", tags=["Bookings"])
 
@@ -75,7 +77,8 @@ def get_bookings(
 @router.delete("/{booking_id}", status_code=status.HTTP_200_NO_CONTENT)
 def delete_booking(
     booking_id: str, 
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
 ):
     """
     Retrieves all booking records (Admin only).
@@ -88,6 +91,11 @@ def delete_booking(
     """
 
     try:
+        if not current_user or current_user.role != "admin":
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="Not authorized to access this resource"
+            )
         booking = db.query(Booking).filter(Booking.id == booking_id).first()
         if not booking:
             raise HTTPException(
