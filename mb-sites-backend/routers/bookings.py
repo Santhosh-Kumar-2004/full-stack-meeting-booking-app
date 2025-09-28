@@ -62,14 +62,13 @@ def get_bookings(
     Raises:
         HTTPException 500: Unexpected server or database error.
     """
+    if not current_user or current_user.role != "admin":
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Not authorized to access this resource"
+        )
 
     try:
-        if not current_user or current_user.role != "admin":
-            raise HTTPException(
-                status_code=status.HTTP_403_FORBIDDEN,
-                detail="Not authorized to access this resource"
-            )
-        
         bookings = db.query(Booking).all()
         return bookings
     
@@ -96,7 +95,7 @@ def delete_booking(
     Raises:
         HTTPException 500: Server error during fetch.
     """
-    
+
     if not current_user or current_user.role != "admin":
             raise HTTPException(
                 status_code=status.HTTP_403_FORBIDDEN,
