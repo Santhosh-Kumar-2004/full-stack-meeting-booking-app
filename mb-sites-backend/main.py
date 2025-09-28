@@ -10,3 +10,12 @@ app = FastAPI(
     description="Backend API for managing users and bookings",
     version="1.0.0"
 )
+
+# Middleware (CORS for frontend communication)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],   # Change to specific frontend URL in production
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
