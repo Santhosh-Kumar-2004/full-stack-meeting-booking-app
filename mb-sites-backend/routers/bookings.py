@@ -98,7 +98,7 @@ def delete_booking(
         HTTPException 500: Unexpected server error during deletion.
     """
 
-    if not current_user or current_user.role != "admin":
+    if current_user.role != "admin":
             raise HTTPException(
                 status_code=status.HTTP_403_FORBIDDEN,
                 detail="Not authorized to access this resource"
