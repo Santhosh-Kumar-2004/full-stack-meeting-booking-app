@@ -14,6 +14,15 @@ def create_booking(
     booking: BookingCreate, 
     db: Session = Depends(get_db)
 ):
+    """
+    Creates a new booking record in the database.
+
+    Accepts booking details and saves the new record, returning the created object.
+    This endpoint is intended for both standard users and administrative use.
+
+    Raises:
+        HTTPException 500: Unexpected server or database error.
+    """
     try:
         new_booking = Booking(
             user_id=booking.user_id,
