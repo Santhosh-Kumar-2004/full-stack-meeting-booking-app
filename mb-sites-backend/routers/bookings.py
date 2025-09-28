@@ -58,7 +58,7 @@ def get_bookings(
         )
 
 
-# Delete booking
+# Delete booking and this endpoint is used by only admin - 3
 @router.delete("/{booking_id}", status_code=status.HTTP_200_NO_CONTENT)
 def delete_booking(booking_id: str, db: Session = Depends(get_db)):
     try:
