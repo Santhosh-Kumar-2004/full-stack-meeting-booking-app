@@ -48,7 +48,8 @@ def create_booking(
 # Get all bookings and this endpoint is used by only admin - 2
 @router.get("/", response_model=list[BookingResponse])
 def get_bookings(
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
 ):
     """
     Retrieves a list of all existing bookings.
