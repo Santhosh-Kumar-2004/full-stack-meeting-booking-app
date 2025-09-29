@@ -82,7 +82,7 @@ def login_user(
                 detail="Invalid email or password"
             )
 
-        access_token = create_access_token(data={
+        access_token = create_access_token(data={ #Creating token with the users entered data
             "sub": db_user.email,
             "name": db_user.name,
             "role": db_user.role.value
