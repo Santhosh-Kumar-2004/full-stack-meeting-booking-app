@@ -17,7 +17,7 @@ class BookingResponse(BaseModel):
     reason: str
     meeting_time: datetime
     created_at: datetime
-    user_id: str
+    # user_id: str
 
     class Config:
         from_attributes = True
