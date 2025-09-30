@@ -29,6 +29,7 @@ def create_booking(
 
     try:
         new_booking = Booking(
+            user_id=str(current_user.id),
             guest_name=booking.guest_name,
             guest_email=booking.guest_email,
             reason=booking.reason,
