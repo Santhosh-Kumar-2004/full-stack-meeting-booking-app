@@ -1,9 +1,10 @@
+import uuid
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from passlib.context import CryptContext
 
 from helper.database import get_db
-from helper.auth_utils import create_access_token, get_current_user, verify_password, hash_password
+from helper.auth_utils import ADMIN_EMAILS, create_access_token, get_current_user, verify_password, hash_password
 from schemas.user import UserCreate, UserLogin, UserResponse
 from models.models import User
 
@@ -48,10 +49,16 @@ def register_user(
         
         # hash password
         hashed_password = hash_password(user.password)
+
+         # Decide role
+        role = "admin" if user.email in ADMIN_EMAILS else "user"
+
         new_user = User(
+            id=str(uuid.uuid4()),
             email=user.email,
             password=hashed_password,
-            name=user.name
+            name=user.name,
+            role=role
         )
 
         db.add(new_user)
