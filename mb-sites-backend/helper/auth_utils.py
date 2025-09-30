@@ -73,12 +73,10 @@ def decode_access_token(token: str) -> Optional[dict]:
 
 # ---------------- ROLE CHECK ----------------
 
-def is_admin(email: str) -> bool:
-    """
-    Check if a given email is an admin
-    """
+def is_admin(db: Session, email: str) -> bool:
+    user = db.query(User).filter(User.email == email).first()
+    return user and user.role == "admin"
 
-    return email in ADMIN_EMAILS
 
 
 # ✅ Dependency to get current logged-in user
