@@ -14,7 +14,8 @@ router = APIRouter(prefix="/bookings", tags=["Bookings"])
 @router.post("/", response_model=BookingResponse, status_code=status.HTTP_201_CREATED)
 def create_booking(
     booking: BookingCreate, 
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
 ):
     """
     Creates a new booking record in the database.
@@ -28,10 +29,10 @@ def create_booking(
 
     try:
         new_booking = Booking(
-            user_id=booking.user_id,
-            date=booking.date,
-            time=booking.time,
-            description=booking.description
+            guest_name=booking.guest_name,
+            guest_email=booking.guest_email,
+            reason=booking.reason,
+            meeting_time=booking.meeting_time,
         )
         db.add(new_booking)
         db.commit()
