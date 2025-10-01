@@ -25,7 +25,7 @@ Component Theme (buttons, inputs, forms, modals, etc.)
 
 ## Step 3: Decide the Look & Feel
 
-I’ll suggest a modern but minimal look:
+### I’ll suggest a modern but minimal look:
     Primary Color: #2563eb (blue-600) → main brand color (buttons, highlights).
     Secondary Color: #facc15 (yellow-400) → accent color for highlights.
     Background: #f9fafb (light gray).
