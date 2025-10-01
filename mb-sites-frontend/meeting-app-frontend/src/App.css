@@ -89,3 +89,9 @@ Secondary: #06B6D4
 Background: #F7F5FF
 Text: #111827
 Accent: #F97316 */
+
+/* Primary = main CTA buttons, brand color.
+Secondary = secondary buttons, links, subtle badges.
+Background = page background / cards (usually very light or dark).
+Text = main body & headings color (ensure contrast).
+Accent = tiny highlights: icons, badges, active states */
