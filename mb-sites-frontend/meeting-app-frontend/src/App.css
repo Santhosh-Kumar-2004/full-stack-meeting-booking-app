@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -62,4 +62,32 @@ Accent: #F59E0B */
 Secondary: #2563EB
 Background: #F7FAFC
 Text: #0F172A
+Accent: #F97316 */
+
+Warm & Friendly — approachable, human-centered
+Primary: #F97316
+Secondary: #10B981
+Background: #FFF8F1
+Text: #1F2937
+Accent: #7C3AED
+
+Minimal Monochrome — very neutral / enterprise-y
+Primary: #111827
+Secondary: #6B7280
+Background: #FFFFFF
+Text: #0F172A
+Accent: #2563EB
+
+Elegant Dark — premium, low-light UI
+Primary: #0B1220
+Secondary: #374151
+Background: #0F172A
+Text: #E6EEF6
+Accent: #7C3AED
+
+Playful Purple — creative, more startup-y
+Primary: #7C3AED
+Secondary: #06B6D4
+Background: #F7F5FF
+Text: #111827
 Accent: #F97316 */
