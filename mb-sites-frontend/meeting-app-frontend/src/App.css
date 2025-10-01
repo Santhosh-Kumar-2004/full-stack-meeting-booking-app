@@ -1,4 +1,4 @@
-/* #root {
+#root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -64,7 +64,7 @@ Background: #F7FAFC
 Text: #0F172A
 Accent: #F97316 */
 
-Warm & Friendly — approachable, human-centered
+/* Warm & Friendly — approachable, human-centered
 Primary: #F97316
 Secondary: #10B981
 Background: #FFF8F1
