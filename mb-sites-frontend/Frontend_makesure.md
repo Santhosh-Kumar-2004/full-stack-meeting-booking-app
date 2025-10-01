@@ -12,4 +12,18 @@ Layout Style (navbar style, sidebar vs topbar, card style)
 Component Theme (buttons, inputs, forms, modals, etc.)
     → How interactive elements will look.
 
-##
+-----------------------------------------------------------------------------
+
+## Step 2: Think About the Pages We Need
+
+For a Meeting Booking App, typical pages could be:
+
+Home / Dashboard → Overview of upcoming meetings, quick actions.
+
+Bookings Page → List + create + edit + delete bookings.
+
+Profile Page → User info & settings.
+
+Admin Page (if you have admin role) → Manage users/bookings.
+
+Login / Register → Authentication.
