@@ -22,3 +22,4 @@ Component Theme (buttons, inputs, forms, modals, etc.)
     Profile Page → User info & settings.
     Admin Page (if you have admin role) → Manage users/bookings.
     Login / Register → Authentication.
+
