@@ -23,3 +23,12 @@ Component Theme (buttons, inputs, forms, modals, etc.)
     Admin Page (if you have admin role) → Manage users/bookings.
     Login / Register → Authentication.
 
+## Step 3: Decide the Look & Feel
+
+I’ll suggest a modern but minimal look:
+    Primary Color: #2563eb (blue-600) → main brand color (buttons, highlights).
+    Secondary Color: #facc15 (yellow-400) → accent color for highlights.
+    Background: #f9fafb (light gray).
+    Text: #111827 (dark gray/black for headings) & #374151 (normal text).
+    Font: Poppins
+    (clean & professional).
