@@ -1,2 +1,3 @@
 Email validations at the frontend
 Go through full login page and add notification and error codes
+Enhance login error things
