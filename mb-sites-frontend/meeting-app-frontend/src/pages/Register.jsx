@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../styles/Register.css";
 
+import { toast } from "react-toastify";
+
 const Register = () => {
   const [formData, setFormData] = useState({
     name: "",
