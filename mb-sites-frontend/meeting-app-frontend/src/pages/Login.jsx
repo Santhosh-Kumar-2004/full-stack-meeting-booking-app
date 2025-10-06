@@ -24,7 +24,15 @@ const Login = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:8000/auth/login", formData);
+        const response = await fetch("http://localhost:8000/auth/register", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+        });
+
+    //   const response = await axios.post("http://localhost:8000/auth/login", formData);
       const { access_token } = response.data;
 
       localStorage.setItem("token", access_token);
