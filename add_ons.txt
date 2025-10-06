@@ -5,4 +5,5 @@ Go through full login page and add notification and error codes
 Enhance login error things
 
 Backedn endpoint edit and handle all kinda errors again
+
 Edit the toast messages at frontend
