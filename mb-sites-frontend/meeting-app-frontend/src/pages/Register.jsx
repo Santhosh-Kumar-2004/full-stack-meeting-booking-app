@@ -92,6 +92,7 @@ const Register = () => {
           <button type="submit" className="btn-primary" onClick={required_fields}>
             Register
           </button>
+          <p>Already have an account? <Link to="/login">Login</Link></p>
         </form>
         {message && <p className="message">{message}</p>}
       </div>
