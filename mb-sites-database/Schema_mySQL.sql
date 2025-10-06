@@ -1,6 +1,6 @@
 CREATE DATABASE meeting_app_db;
 
-USE meeting_app_db;
+USE meeting_app_db;	
 
 CREATE TABLE users (
   id CHAR(36) NOT NULL,
