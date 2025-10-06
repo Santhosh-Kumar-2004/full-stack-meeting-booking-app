@@ -66,7 +66,7 @@ const Login = () => {
                         />
                     {/* </div> */}
 
-                    <div className="form-group">
+                    {/* <div className="form-group"> */}
                         {/* <label>Password</label> */}
                         <input
                             type="password"
@@ -76,7 +76,7 @@ const Login = () => {
                             placeholder="Enter your password"
                             required
                         />
-                    </div>
+                    {/* </div> */}
 
                     <button type="submit" className="login-btn">Login</button>
 
