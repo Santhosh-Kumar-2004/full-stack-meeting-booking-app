@@ -38,7 +38,7 @@ const Login = () => {
 
                 localStorage.setItem("token", access_token);
                 toast.success("Login successful!");
-                navigate("/dashboard"); // or wherever you want to redirect
+                navigate("/"); // or wherever you want to redirect
             }
             else if (response.status === 401) {
                 toast.error("Invalid email or password");
