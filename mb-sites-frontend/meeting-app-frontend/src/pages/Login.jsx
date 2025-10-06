@@ -16,37 +16,43 @@ const Login = () => {
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+  e.preventDefault();
 
-        if (!formData.email || !formData.password) {
-            toast.info("Please fill in all fields");
-            return;
-        }
+  if (!formData.email || !formData.password) {
+    toast.info("Please fill in all fields");
+    return;
+  }
 
-        try {
-            const response = await fetch("http://localhost:8000/auth/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
-            });
+  try {
+    const response = await fetch("http://localhost:8000/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
 
-            //   const response = await axios.post("http://localhost:8000/auth/login", formData);
-            const { access_token } = response.data;
+    if (response.ok) {
+      const data = await response.json();
+      const { access_token } = data;
 
-            localStorage.setItem("token", access_token);
-            toast.success("Login successful!");
-            navigate("/dashboard"); // you can change this later to home/profile etc.
+      localStorage.setItem("token", access_token);
+      toast.success("Login successful!");
+      navigate("/dashboard"); // or wherever you want to redirect
+    } 
+    else if (response.status === 401) {
+      toast.error("Invalid email or password");
+    } 
+    else {
+      const errorData = await response.json();
+      toast.error(errorData.detail || "Login failed. Please try again.");
+    }
+  } catch (error) {
+    console.error("Error during login:", error);
+    toast.error("Something went wrong. Please check your connection.");
+  }
+};
 
-        } catch (error) {
-            if (error.response && error.response.status === 401) {
-                toast.error("Invalid email or password");
-            } else {
-                toast.error("Login failed. Please try again.");
-            }
-        }
-    };
 
     return (
         <div className="register-page">
