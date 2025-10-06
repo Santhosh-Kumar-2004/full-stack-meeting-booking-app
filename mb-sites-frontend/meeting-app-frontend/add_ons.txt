@@ -1,1 +1,2 @@
-email validations at the frontend
+Email validations at the frontend
+Go through
