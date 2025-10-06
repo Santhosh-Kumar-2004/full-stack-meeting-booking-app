@@ -54,7 +54,7 @@ const Login = () => {
                 <h2>Login</h2>
                 <form onSubmit={handleSubmit}>
 
-                    <div className="form-group">
+                    {/* <div className="form-group"> */}
                         <label>Email</label>
                         <input
                             type="email"
@@ -64,7 +64,7 @@ const Login = () => {
                             placeholder="Enter your email"
                             required
                         />
-                    </div>
+                    {/* </div> */}
 
                     <div className="form-group">
                         <label>Password</label>
