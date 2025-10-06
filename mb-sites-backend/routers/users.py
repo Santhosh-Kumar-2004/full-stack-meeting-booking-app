@@ -40,13 +40,6 @@ def register_user(
                 detail="Email address is Invalid"
             )
         
-        # check password length
-        # if len(user.password) > MAX_PASSWORD_LENGTH:
-        #     raise HTTPException(
-        #         status_code=status.HTTP_400_BAD_REQUEST,
-        #         detail=f"Password cannot exceed {MAX_PASSWORD_LENGTH} characters."
-        #     )
-        
         # hash password
         hashed_password = hash_password(user.password)
 
