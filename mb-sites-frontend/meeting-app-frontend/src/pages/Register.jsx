@@ -38,7 +38,8 @@ const Register = () => {
       }
 
       const data = await response.json();
-      setMessage("✅ Registration successful!");
+    //   setMessage("✅ Registration successful!");
+      toast.success("Registered successfully!");
       setFormData({ name: "", email: "", password: "" });
     } catch (error) {
       setMessage(`❌ ${error.message}`);
