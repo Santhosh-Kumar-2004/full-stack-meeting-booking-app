@@ -9,7 +9,16 @@ function App() {
   return (
     <>
       {/* <h1>Hello world</h1> */}
-      <Register />
+      <Router>
+        {/* Navbar always visible */}
+        <Navbar />
+
+        {/* Routes */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </Router>
     </>
   )
 }
