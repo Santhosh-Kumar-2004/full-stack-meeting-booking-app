@@ -19,15 +19,16 @@ const Register = () => {
     });
   };
 
-  const required_fields = ["name", "email", "password"];
-  if (formData.name && formData.email && formData.password) {
-    // All required fields are filled
-    console.log("All required fields are filled.");
-    toast.info("Please fill all fields!");
-  } else {
-    // Some required fields are missing
-    console.log("Some required fields are missing.");
-  }
+  const required_fields = async () => {
+    if (formData.name && formData.email && formData.password) {
+        // All required fields are filled
+        console.log("All required fields are filled.");
+        toast.info("All required fields are filled!");
+    } else {
+        // Some required fields are missing
+        console.log("Some required fields are missing.");
+        toast.error("Some required fields are missing.");
+    }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
