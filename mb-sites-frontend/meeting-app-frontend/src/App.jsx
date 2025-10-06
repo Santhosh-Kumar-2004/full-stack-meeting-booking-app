@@ -22,6 +22,18 @@ function App() {
           <Route path="/register" element={<Register />} />
         </Routes>
       </Router>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </>
   )
 }
