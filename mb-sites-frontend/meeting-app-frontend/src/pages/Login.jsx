@@ -50,41 +50,41 @@ const Login = () => {
 
   return (
     <div className="register-page">
-    <div className="login-container">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Login</h2>
+        <div className="register-card">
+        <form className="login-form" onSubmit={handleSubmit}>
+            <h2>Login</h2>
 
-        <div className="form-group">
-          <label>Email</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Enter your email"
-            required
-          />
+            <div className="form-group">
+            <label>Email</label>
+            <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Enter your email"
+                required
+            />
+            </div>
+
+            <div className="form-group">
+            <label>Password</label>
+            <input
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                placeholder="Enter your password"
+                required
+            />
+            </div>
+
+            <button type="submit" className="login-btn">Login</button>
+
+            <p className="register-link">
+            Don’t have an account? <Link to="/register">Register</Link>
+            </p>
+        </form>
         </div>
-
-        <div className="form-group">
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            placeholder="Enter your password"
-            required
-          />
-        </div>
-
-        <button type="submit" className="login-btn">Login</button>
-
-        <p className="register-link">
-          Don’t have an account? <Link to="/register">Register</Link>
-        </p>
-      </form>
-    </div>
     </div>
   );
 };
