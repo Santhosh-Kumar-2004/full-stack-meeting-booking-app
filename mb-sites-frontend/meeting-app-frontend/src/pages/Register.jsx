@@ -42,7 +42,8 @@ const Register = () => {
       toast.success("Registered successfully!");
       setFormData({ name: "", email: "", password: "" });
     } catch (error) {
-      setMessage(`❌ ${error.message}`);
+    //   setMessage(`❌ ${error.message}`);
+      toast.error(`${error.message}`);
     }
   };
 
