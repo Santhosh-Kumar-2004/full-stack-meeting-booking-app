@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Register from './pages/Register'
+import Login from './pages/Login';
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
