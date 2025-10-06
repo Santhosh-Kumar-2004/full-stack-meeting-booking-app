@@ -29,6 +29,7 @@ const Register = () => {
         console.log("Some required fields are missing.");
         toast.error("Some required fields are missing.");
     }
+};
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -87,7 +88,7 @@ const Register = () => {
             onChange={handleChange}
             required
           />
-          <button type="submit" className="btn-primary">
+          <button type="submit" className="btn-primary" onClick={required_fields}>
             Register
           </button>
         </form>
