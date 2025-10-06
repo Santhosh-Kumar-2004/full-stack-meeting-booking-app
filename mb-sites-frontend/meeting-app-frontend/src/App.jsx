@@ -11,7 +11,7 @@ function App() {
       {/* <h1>Hello world</h1> */}
       <Router>
         {/* Navbar always visible */}
-        <Navbar />
+        {/* <Navbar /> */}
 
         {/* Routes */}
         <Routes>
