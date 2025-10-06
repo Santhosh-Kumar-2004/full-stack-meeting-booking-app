@@ -15,6 +15,12 @@
   text-align: center;
 }
 
+.register-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .login-form h2 {
   margin-bottom: 25px;
   color: #2d3436;

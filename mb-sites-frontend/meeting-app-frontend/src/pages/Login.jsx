@@ -51,7 +51,7 @@ const Login = () => {
   return (
     <div className="register-page">
         <div className="register-card">
-        <form className="login-form" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <h2>Login</h2>
 
             <div className="form-group">
