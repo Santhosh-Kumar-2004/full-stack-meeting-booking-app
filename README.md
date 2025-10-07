@@ -1,6 +1,6 @@
 "# Full Stack Meeting Booking App" 
 
-# Meetly – Full Stack Meeting Booking App
+# Meeting Booking App – Full Stack Meeting Booking App
 
 ## 🚀 Overview
 Meetly is a full-stack meeting booking platform built with **React (frontend)**, **FastAPI (backend)**, and **PostgreSQL (database)**.  
