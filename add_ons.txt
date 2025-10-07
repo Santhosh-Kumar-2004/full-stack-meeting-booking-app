@@ -7,4 +7,3 @@ Enhance login error things
 Backend endpoint edit and handle all kinda errors again
 
 Edit the toast messages at frontend
-
