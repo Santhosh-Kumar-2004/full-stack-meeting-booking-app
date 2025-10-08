@@ -18,7 +18,7 @@ const AllUsers = () => {
 
     const fetchUsers = async () => {
       try {
-        const response = await fetch("http://localhost:8000/users/", {
+        const response = await fetch("http://localhost:8000/auth/", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
