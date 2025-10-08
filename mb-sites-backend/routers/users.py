@@ -111,7 +111,7 @@ def login_user(
 
 
 # Get all users - 3
-@router.get("/", response_model=list[UserResponse])
+@router.get("/", response_model=list[UserResponse]) #only used and viewed by the ADMIN
 def get_users(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user)
