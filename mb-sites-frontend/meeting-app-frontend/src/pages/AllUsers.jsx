@@ -24,12 +24,6 @@ const AllUsers = () => {
           },
         });
 
-        if (response.status === 403) {
-          toast.error("Access denied: Admins only");
-          navigate("/");
-          return;
-        }
-
         if (!response.ok) {
           throw new Error("Failed to fetch users");
         }
