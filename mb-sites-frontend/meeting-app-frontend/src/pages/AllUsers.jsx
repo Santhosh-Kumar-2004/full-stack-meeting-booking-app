@@ -28,6 +28,12 @@ const AllUsers = () => {
           throw new Error("Failed to fetch users");
         }
 
+        if (response.status === 403) {
+          toast.error("Access denied — admins only!");
+          navigate("/dashboard"); // redirect non-admins
+          return;
+        }
+
         const data = await response.json();
         setUsers(data);
       } catch (error) {
