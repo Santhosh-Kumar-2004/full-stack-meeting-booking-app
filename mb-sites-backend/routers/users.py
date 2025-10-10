@@ -44,7 +44,8 @@ def register_user(
         hashed_password = hash_password(user.password)
 
          # Decide role
-        role = "admin" if user.email in ADMIN_EMAILS else "user"
+        role = "admin" if user.email.lower() in [email.lower() for email in ADMIN_EMAILS] else "user"
+
 
         new_user = User(
             id=str(uuid.uuid4()),
