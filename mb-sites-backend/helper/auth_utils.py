@@ -23,7 +23,7 @@ ACCESS_TOKEN_EXPIRE_MINUTES = os.getenv("JWT_EXPIRE_MINUTES")
 # Admins email, RBAC (from .env)
 # Admin emails (turns into Python list)
 ADMIN_EMAILS = os.getenv("ADMIN_EMAILS", "").split(",")
-ADMIN_EMAILS = [email.strip() for email in ADMIN_EMAILS if email.strip()]
+ADMIN_EMAILS = [email.strip().lower() for email in os.getenv("ADMIN_EMAILS", "").split(",") if email.strip()]
 
 
 # ---------------- PASSWORD UTILS ----------------
