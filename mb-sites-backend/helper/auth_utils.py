@@ -46,17 +46,14 @@ def verify_password(plain_password: str, hashed_password: str) -> bool:
 
 # ---------------- JWT UTILS ----------------
 
-def create_access_token(data: dict, expires_delta: timedelta = None) -> str:
-    """
-    Create a JWT token with expiration of 60 minutes.
-    """
+def create_access_token(email: str, role: str, expires_delta: timedelta = None) -> str:
+    to_encode = {
+        "sub": email,
+        "role": role,
+        "exp": datetime.utcnow() + (expires_delta or timedelta(minutes=int(ACCESS_TOKEN_EXPIRE_MINUTES)))
+    }
+    return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
-    to_encode = data.copy()
-    expire = datetime.now() + (expires_delta or timedelta(minutes=int(ACCESS_TOKEN_EXPIRE_MINUTES)))
-    to_encode.update({"exp": expire})
-    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
-
-    return encoded_jwt 
 
 
 def decode_access_token(token: str) -> Optional[dict]:
