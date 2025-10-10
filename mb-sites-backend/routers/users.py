@@ -5,7 +5,7 @@ from passlib.context import CryptContext
 
 from helper.database import get_db
 from helper.auth_utils import ADMIN_EMAILS, create_access_token, get_current_user, verify_password, hash_password
-from schemas.user import UserCreate, UserLogin, UserResponse
+from schemas.user import TokenResponse, UserCreate, UserLogin, UserResponse
 from models.models import User
 
 router = APIRouter(prefix="/auth", tags=["Users"])
