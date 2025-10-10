@@ -97,21 +97,25 @@ def get_current_user(
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Invalid or expired token",
-            headers={"WWW-Authenticate": "Bearer"},
         )
 
-    email: str = payload.get("sub")
+    email = payload.get("sub")
+    role = payload.get("role")
+
     if not email:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Token payload invalid (missing sub)",
-        )
+        raise HTTPException(status_code=401, detail="Token missing email (sub)")
 
     user = db.query(User).filter(User.email == email).first()
     if not user:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="User not found",
-        )
+        raise HTTPException(status_code=401, detail="User not found")
 
-    return user  # returns full User ORM object
+    # keep DB role in sync (optional but smart)
+    if email.lower() in ADMIN_EMAILS and user.role != "admin":
+        user.role = "admin"
+        db.commit()
+        db.refresh(user)
+
+    # attach role from token if exists
+    user.role = role or user.role
+
+    return user
