@@ -91,7 +91,7 @@ def login_user(
                 detail="Invalid email or password"
             )
 
-        access_token = access_token = create_access_token(
+        access_token = create_access_token(
         email=db_user.email,
         role=db_user.role
     )

@@ -12,7 +12,10 @@ class UserLogin(BaseModel):
     email: EmailStr
     password: str
 
-# For response (output)
+class TokenResponse(BaseModel):
+    access_token: str
+    token_type: str
+    
 class UserResponse(BaseModel):
     id: str
     name: str
