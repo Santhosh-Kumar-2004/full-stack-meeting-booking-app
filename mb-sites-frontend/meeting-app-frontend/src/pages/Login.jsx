@@ -31,6 +31,13 @@ const Login = () => {
                 body: JSON.stringify(formData),
             });
 
+            if (response.status === 403) {
+                toast.error("Access denied — admins only!");
+                navigate("/dashboard"); // redirect non-admins
+                return;
+            }
+
+
             if (response.ok) {
                 const data = await response.json();
                 const { access_token } = data;
