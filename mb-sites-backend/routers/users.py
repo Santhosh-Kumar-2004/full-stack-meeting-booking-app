@@ -91,10 +91,10 @@ def login_user(
                 detail="Invalid email or password"
             )
 
-        access_token = create_access_token(
-            email=db_user.email,
-            role=db_user.role
-        )
+        access_token = access_token = create_access_token(
+        email=db_user.email,
+        role=db_user.role
+    )
 
         return {"access_token": access_token, "token_type": "bearer"}
     
