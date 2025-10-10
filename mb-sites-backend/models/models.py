@@ -24,5 +24,5 @@ class Booking(Base):
     guest_email = Column(String(100), nullable=False)
     reason = Column(String(255), nullable=False)
     meeting_time = Column(DateTime, nullable=False)
-    created_at = Column(DateTime, default=datetime.now)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
 
