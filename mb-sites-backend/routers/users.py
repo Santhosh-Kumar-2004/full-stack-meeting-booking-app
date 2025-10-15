@@ -54,6 +54,7 @@ def register_user(
             name=user.name,
             role=role
         )
+        print(new_user)
 
         db.add(new_user)
         db.commit()
