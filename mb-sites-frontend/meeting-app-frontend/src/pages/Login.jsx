@@ -34,7 +34,7 @@ const Login = () => {
             if (response.ok) {
                 const data = await response.json();
                 const { access_token } = data;
-
+                localStorage.clear();
                 localStorage.setItem("token", access_token);
                 toast.success("Login successful!");
                 navigate("/"); // or wherever you want to redirect
