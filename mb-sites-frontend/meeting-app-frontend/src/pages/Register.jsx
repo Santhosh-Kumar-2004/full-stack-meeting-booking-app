@@ -45,12 +45,12 @@ const Register = () => {
         body: JSON.stringify(formData),
       });
 
+      const err = await response.json();
       if (!response.ok) {
-        const err = await response.json();
         throw new Error(err.detail || "Registration failed");
       }
 
-      const data = await response.json();
+      // const data = await response.json();
     //   setMessage("✅ Registration successful!");
       toast.success("Registered successfully!");
       setFormData({ name: "", email: "", password: "" });
