@@ -27,6 +27,8 @@ INSERT INTO users (id, name, email, password)
 VALUES (UUID(), 'John Doe', 'john@example.com', 'hashed_password_123');
 
 SELECT * FROM users;
+DELETE FROM users WHERE email = 'govind@gmail.com';
+
 
 INSERT INTO users (id, name, email, password, role)
 VALUES (
