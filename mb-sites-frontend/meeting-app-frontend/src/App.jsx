@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import Register from './pages/Register'
 import Login from './pages/Login';
 import AllUsers from './pages/AllUsers';
+import AllBookings from './pages/AllBookings';
+import MyBookings from './pages/MyBookings';
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
