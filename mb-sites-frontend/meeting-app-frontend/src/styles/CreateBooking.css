@@ -1,0 +1,61 @@
+.create-booking-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f9fafc;
+}
+
+.create-booking-card {
+  width: 400px;
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+.create-booking-card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.create-booking-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.create-booking-card input,
+.create-booking-card textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.create-booking-card input:focus,
+.create-booking-card textarea:focus {
+  border-color: #007bff;
+}
+
+.create-booking-card textarea {
+  resize: none;
+  height: 100px;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+}
