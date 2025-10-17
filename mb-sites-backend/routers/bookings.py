@@ -121,3 +121,39 @@ def delete_booking(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Error deleting booking: {str(e)}"
         )
+
+# Get bookings for the currently logged-in user - 4
+@router.get("/me", response_model=list[BookingResponse])
+def get_my_bookings(
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    """
+    Retrieves all bookings made by the currently logged-in user.
+
+    This endpoint is accessible to both **User** and **Admin** roles.
+
+    Returns:
+        list[BookingResponse]: All bookings associated with the current user's email.
+
+    Raises:
+        HTTPException 401: If no authenticated user.
+        HTTPException 500: Unexpected server error.
+    """
+
+    if not current_user:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Authentication required"
+        )
+
+    try:
+        # Admins can see all their own bookings (if they made any)
+        bookings = db.query(Booking).filter(Booking.guest_email == current_user.email).all()
+        return bookings
+
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Error fetching user bookings: {str(e)}"
+        )
