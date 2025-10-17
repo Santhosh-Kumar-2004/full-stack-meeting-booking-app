@@ -30,7 +30,7 @@ const AllUsers = () => {
 
         if (response.status === 403) {
           toast.error("Access denied — admins only!");
-          navigate("/dashboard"); // redirect non-admins
+          navigate("/"); // redirect non-admins
           return;
         }
 
