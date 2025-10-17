@@ -11,6 +11,7 @@ import CreateBooking from './pages/CreateBooking';
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import NotFound from './pages/NotFound';
 
 function App() {
 
@@ -30,7 +31,7 @@ function App() {
           <Route path="/admin/bookings" element={<AllBookings />} />
           <Route path="/bookings/new" element={<CreateBooking />} />
           <Route path="/bookings/me" element={<MyBookings />} />
-          {/* <Route path="*" element={<Login />} /> */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
 
