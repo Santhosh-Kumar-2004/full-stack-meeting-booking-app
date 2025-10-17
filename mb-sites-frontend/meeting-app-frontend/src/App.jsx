@@ -30,7 +30,7 @@ function App() {
           <Route path="/admin/bookings" element={<AllBookings />} />
           <Route path="/bookings/new" element={<CreateBooking />} />
           <Route path="/bookings/me" element={<MyBookings />} />
-          <Route path="*" element={<Login />} />
+          {/* <Route path="*" element={<Login />} /> */}
         </Routes>
       </Router>
 
