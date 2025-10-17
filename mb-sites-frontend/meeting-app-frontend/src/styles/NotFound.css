@@ -1,0 +1,63 @@
+.notfound-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+.notfound-content {
+  text-align: center;
+  padding: 40px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.notfound-title {
+  font-size: 6rem;
+  font-weight: 700;
+  color: #ff5252;
+  margin-bottom: 10px;
+}
+
+.notfound-subtitle {
+  font-size: 2rem;
+  color: #f0f0f0;
+  margin-bottom: 10px;
+}
+
+.notfound-text {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 30px;
+}
+
+.home-btn {
+  background-color: #ff5252;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.home-btn:hover {
+  background-color: #ff3030;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
