@@ -29,6 +29,7 @@ function App() {
           <Route path="/admin/users" element={<AllUsers />} />
           <Route path="/bookings/new" element={<CreateBooking />} />
           <Route path="/bookings/me" element={<MyBookings />} />
+          <Route path="*" element={<Login />} />
         </Routes>
       </Router>
 
