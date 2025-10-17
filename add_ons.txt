@@ -11,3 +11,4 @@ Edit the toast messages at frontend
 Add forget password field in login
 
 Add public and private route.
+
