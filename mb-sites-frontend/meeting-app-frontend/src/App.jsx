@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import AllUsers from './pages/AllUsers';
 import AllBookings from './pages/AllBookings';
 import MyBookings from './pages/MyBookings';
+import CreateBooking from './pages/CreateBooking';
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
